@@ -1,0 +1,6 @@
+# Visual Studio Code
+.vscode/
+.history/
+
+agent_strand1_venc
+agent_strand1_venc/*
