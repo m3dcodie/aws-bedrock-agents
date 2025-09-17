@@ -2,5 +2,9 @@
 .vscode/
 .history/
 
-agent_strand1_venc
-agent_strand1_venc/*
+agent_strand1_venv
+agent_strand1_venv/*
+
+.bedrock_agentcore.yaml
+
+.dockerignore

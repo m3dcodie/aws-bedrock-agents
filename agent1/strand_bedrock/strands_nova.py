@@ -3,6 +3,9 @@ from strands_tools import calculator # Import the calculator tool
 import argparse
 import json
 from strands.models import BedrockModel
+from bedrock_agentcore.runtime import BedrockAgentCoreApp
+
+app = BedrockAgentCoreApp()
 
 # Create a custom tool 
 @tool
@@ -21,6 +24,7 @@ agent = Agent(
     system_prompt="You're a helpful assistant. You can do simple math calculation, and tell the weather."
 )
 
+@app.entrypoint
 def strands_agent_bedrock(payload):
     """
     Invoke the agent with a payload
@@ -31,7 +35,4 @@ def strands_agent_bedrock(payload):
     return response.message['content'][0]['text']
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("payload", type=str)
-    args = parser.parse_args()
-    response = strands_agent_bedrock(json.loads(args.payload))
+    app.run()
